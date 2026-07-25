@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap");
+@import "tailwindcss";
+
+:root {
+  --bg: #05060a;
+  --accent: #6366f1;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  background-color: var(--bg);
+  color: #e5e7eb;
+  font-family: "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: "Sora", system-ui, sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #05060a;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#4f46e5, #7c3aed);
+  border-radius: 8px;
+}
+
+/* Reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Gradient text */
+.text-gradient {
+  background: linear-gradient(135deg, #a5b4fc 0%, #818cf8 40%, #c4b5fd 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animated aurora blobs */
+@keyframes float-slow {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, -40px) scale(1.1); }
+}
+@keyframes float-slow-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-40px, 30px) scale(1.15); }
+}
+.animate-blob-1 { animation: float-slow 14s ease-in-out infinite; }
+.animate-blob-2 { animation: float-slow-2 18s ease-in-out infinite; }
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+.animate-bounce-slow { animation: bounce-slow 2s ease-in-out infinite; }
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow { animation: spin-slow 22s linear infinite; }
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+.marquee-track {
+  display: inline-flex;
+  animation: marquee 28s linear infinite;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
